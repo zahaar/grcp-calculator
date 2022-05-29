@@ -22,12 +22,10 @@ GO_VERSION ?= 1.18
 
 
 build: ## Build the binary files
-	@echo "==> Sourcing .env ..." \
-		&& set -a; source .env; set +a \
-		&& echo "==> Building binaries..." \
-		&& go build -o bin/server cmd/server/server.go \
-		&& go build -o bin/client cmd/client/client.go \
-		&& echo "==> Done ./bin/ "
+	@echo "==> Building binaries..." 
+	@go build -o bin/server cmd/server/server.go 
+	@go build -o bin/client cmd/client/client.go 
+	@echo "==> Done ./bin/ "
 
 dep: ## Get the dependencies
 	go get -v -t -d ./...
@@ -57,5 +55,3 @@ help: ## Help target
 	@ag '^[a-zA-Z_-]+:.*?## .*$$' --nofilename $(MAKEFILE_LIST) \
 	| sort \
 	| awk 'BEGIN{FS=": ## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-
-
