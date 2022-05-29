@@ -1,18 +1,26 @@
 syntax = "proto3";
 
-package calculator;
+package calculator.v1;
 
 option go_package = "github.com/zahaar/grcp-calculator/gen/calc/v1;calc";
 
 service Calculator {
-	rpc Add (AddRequest) returns (AddResponse){}
+	rpc performCalc (mathTaskRequest) returns (mathTaskResponse){}
 }
 
-message AddRequest {
-	int32 a = 1;
-	int32 b = 2; 
+message mathTaskRequest {
+	MathMethod method = 1;
+	double arg1 = 2;
+	double arg2 = 3; 
 }
 
-message AddResponse {
-	int32 s = 1;
+message mathTaskResponse {
+	double eq = 1;
+}
+
+enum MathMethod {
+	ADD = 0;
+	SUB = 1;
+	MUL = 2;
+	DIV = 3;
 }
