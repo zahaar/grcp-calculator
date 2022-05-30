@@ -1,3 +1,4 @@
+// Package grcp-calculator server for basic math methods
 package main
 
 import (
@@ -14,6 +15,9 @@ type calculatorService struct {
 	calc.UnimplementedCalculatorServer
 }
 
+// Method calculate() processes calc.MathTaskRequest() and depending on calc.MathMethod
+// performs appropriate math operation. Division by zero is handled as:
+// errors.New("math: divided by zero")
 func calculate(r *calc.MathTaskRequest) (*calc.MathTaskResponse, error) {
 	log.Printf("Received Method:{%v} Args:%v; %v", r.GetMethod(), r.GetArg1(), r.GetArg2())
 

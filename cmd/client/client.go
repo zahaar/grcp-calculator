@@ -1,3 +1,4 @@
+// Package grcp-calculator client for basic math methods
 package main
 
 import (
@@ -18,6 +19,7 @@ var (
 	arg2   = flag.Float64("b", 0, "Math method arg2")
 )
 
+// Check if the method retrieved as cli arg is actually exist as calc.MathMethod
 func checkMethodExist(m *string) calc.MathMethod {
 	val, pres := calc.MathMethod_value[strings.ToUpper(*m)]
 
