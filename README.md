@@ -26,6 +26,7 @@ The results are printed to `STDOUT`
 ## Usage
 
 > Please make sure that prerequisites are met before usage
+
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/81821185/171047005-0fb9f70a-477e-4d2b-a59d-43bec0b4df2a.gif)
 
 From the module root:
